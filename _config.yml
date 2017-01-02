@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 个人博客
-subtitle: Piggsoft的个人博客
-description: 个人博客
-author: Piggsoft
-language: zh-CN
+title: 独钓翁
+subtitle: 孤舟蓑笠翁，独钓寒江雪。
+description: 千山鸟飞绝，万径人踪灭。孤舟蓑笠翁，独钓寒江雪。
+author: 等待-希望
+language: zh-Hans
 timezone:
 
 # URL
@@ -63,10 +63,14 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: https://github.com/piggsoft/piggsoft.github.io
+avatar: /images/headPhoto.jpg
+duoshuo_shortname: piggsoftgithubio
+baidu_analytics: fb84d8958248c6571b757d31cca5653c
+jiathis: true
