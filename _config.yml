@@ -74,3 +74,10 @@ avatar: /images/headPhoto.jpg
 #duoshuo_shortname: piggsoftgithubio
 #baidu_analytics: fb84d8958248c6571b757d31cca5653c
 #jiathis: true
+
+feed:
+  type: rss2
+  path: rss2.xml
+  limit: 20
+  hub:
+  content:
