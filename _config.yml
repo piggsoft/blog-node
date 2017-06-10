@@ -81,3 +81,8 @@ feed:
   limit: 20
   hub:
   content:
+# sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
