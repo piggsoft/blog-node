@@ -51,7 +51,7 @@ footer:
   icon: user
 
   # If not defined, will be used `author` from Hexo main config.
-  #copyright: true
+  #copyright: piggsoft.com
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
   #powered: true
@@ -63,8 +63,8 @@ footer:
     version: true
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  custom_text: '<div style="width:300px;margin:0 auto; padding:20px 0;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011402000260" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/images/备案图标.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂公网安备 42011402000260号</p></a></div>'
-
+  custom_text: '<div style="width:300px;margin:0 auto; margin-top: 7px;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011402000260" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border:none"><img src="/images/备案图标.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鄂公网安备 42011402000260号</p></a></div>'
+  custom_copyright: Copyright © piggsoft.com
 # ---------------------------------------------------------------
 # SEO Settings
 # ---------------------------------------------------------------
@@ -363,7 +363,7 @@ baidu_analytics: 4b496b80525dde623126ea38c0c5b789
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: piggsoft
   count: true
 
 # Hypercomments
@@ -371,9 +371,9 @@ disqus:
 
 # changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cytI8S25w
+  appkey: 9fe5c9374a5c667bfb905d7c14caf686
 
 
 # Valine.

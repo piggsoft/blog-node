@@ -40,6 +40,12 @@
 #}</div>
 {% endif %}
 
+{% if theme.footer.custom_copyright %}
+  <div class="footer-custom">{#
+  #}{{ theme.footer.custom_copyright }}{#
+#}</div>
+{% endif %}
+
 {% if theme.footer.custom_text %}
   <div class="footer-custom">{#
   #}{{ theme.footer.custom_text }}{#
