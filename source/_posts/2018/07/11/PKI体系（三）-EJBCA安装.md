@@ -241,3 +241,4 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
 10. 访问[http://127.0.0.1:8080/ejbca](http://127.0.0.1:8080/ejbca)进行验证
 11. 下载管理员证书，将`/opt/ca/ejbca_ce_6_10_1_2/p12`下的`superadmin.p12`拷贝到本地，对证书进行安装
 12. 访问[https://127.0.0.1:8443/ejbca](https://127.0.0.1:8443/ejbca)进行验证
+> 注：所有的ip需要换成对应的ip或者域名
