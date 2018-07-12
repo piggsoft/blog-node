@@ -137,10 +137,10 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
 
         /subsystem=datasources/jdbc-driver=mysql:add(driver-name="mysql",driver-module-name="com.mysql",driver-xa-datasource-class-name=com.mysql.jdbc.Driver)
 
-        data-source add --name=ejbcads --driver-name="mysql" --connection-url="jdbc:mysql://172.16.16.158:3306/ejbcatest" --jndi-name="java:/EjbcaDS" --use-ccm=true --driver-class="com.mysql.jdbc.Driver" --user-name="username" --password="password" --validate-on-match=true --background-validation=false --prepared-statements-cache-size=50 --share-prepared-statements=true --min-pool-size=5 --max-pool-size=150 --pool-prefill=true --transaction-isolation=TRANSACTION_READ_COMMITTED --check-valid-connection-sql="select 1;"
+        data-source add --name=ejbcads --driver-name="mysql" --connection-url="jdbc:mysql://127.0.0.1:3306/ejbcatest" --jndi-name="java:/EjbcaDS" --use-ccm=true --driver-class="com.mysql.jdbc.Driver" --user-name="username" --password="password" --validate-on-match=true --background-validation=false --prepared-statements-cache-size=50 --share-prepared-statements=true --min-pool-size=5 --max-pool-size=150 --pool-prefill=true --transaction-isolation=TRANSACTION_READ_COMMITTED --check-valid-connection-sql="select 1;"
 
         ```
-        > 上面的命令和后续的配置命令都需要一条一条执行。注意替换`--connection-url="jdbc:mysql://172.16.16.158:3306/ejbcatest"`，`--user-name="username"`，`--password="password"`
+        > 上面的命令和后续的配置命令都需要一条一条执行。注意替换`--connection-url="jdbc:mysql://127.0.0.1:3306/ejbcatest"`，`--user-name="username"`，`--password="password"`
     3. 配置Wildfly远程调用
         ```shell
         /subsystem=remoting/http-connector=http-remoting-connector:remove
@@ -174,7 +174,7 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
         1. `cp ejbca_ce_6_10_1_2/conf/web.properties.sample ejbca_ce_6_10_1_2/conf/web.properties`
         2. `vim ejbca_ce_6_10_1_2/conf/web.properties`
         3. 设置CA的超级管理员的证书密码,以及给应用服务器生成的服务器端证书的证书密码,和CA的truststory的密码等,这些密码的设置我们可以根据需要设置,或者保持默认的配置,需要注意的是httpsserver.hostname,这个要和后边的alias相对应,我的ip地址为 147.128.105.149,那这里我们设置为147.128.105.149.
-        4. 最终修改，`httpsserver.hostname=172.16.16.185`
+        4. 最终修改，`httpsserver.hostname=127.0.0.1`
     4. 修改`database.properties`
         1. `cp ejbca_ce_6_10_1_2/conf/database.properties.sample ejbca_ce_6_10_1_2/conf/database.properties`
         2. `vim ejbca_ce_6_10_1_2/conf/database.properties`
@@ -213,11 +213,11 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
     2. 配置端口绑定
         ```shell
         /core-service=management/security-realm=SSLRealm:add()
-        /core-service=management/security-realm=SSLRealm/server-identity=ssl:add(keystore-path="${jboss.server.config.dir}/keystore/keystore.jks", keystore-password="serverpwd", alias="172.16.16.185")
+        /core-service=management/security-realm=SSLRealm/server-identity=ssl:add(keystore-path="${jboss.server.config.dir}/keystore/keystore.jks", keystore-password="serverpwd", alias="127.0.0.1")
         /core-service=management/security-realm=SSLRealm/authentication=truststore:add(keystore-path="${jboss.server.config.dir}/keystore/truststore.jks", keystore-password="changeit")
         :reload
         ```
-        > 其中`keystore-password="serverpwd"`对应`web.properties`里面的`httpsserver.password`。`alias="172.16.16.185"`对应`web.properties`里面的`httpsserver.hostname`
+        > 其中`keystore-password="serverpwd"`对应`web.properties`里面的`httpsserver.password`。`alias="127.0.0.1"`对应`web.properties`里面的`httpsserver.hostname`
     3. 重启wildfly`:shutdown(restart=true)`,等待重启完毕
     4. 配置tls
         ```shell
@@ -238,6 +238,6 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
         :reload
         ```
     6. 重启wildfly`:shutdown(restart=true)`,等待重启完毕
-10. 访问[http://172.16.16.185:8080/ejbca](http://172.16.16.185:8080/ejbca)进行验证
+10. 访问[http://127.0.0.1:8080/ejbca](http://127.0.0.1:8080/ejbca)进行验证
 11. 下载管理员证书，将`/opt/ca/ejbca_ce_6_10_1_2/p12`下的`superadmin.p12`拷贝到本地，对证书进行安装
-12. 访问[https://172.16.16.185:8443/ejbca](https://172.16.16.185:8443/ejbca)进行验证
+12. 访问[https://127.0.0.1:8443/ejbca](https://127.0.0.1:8443/ejbca)进行验证
