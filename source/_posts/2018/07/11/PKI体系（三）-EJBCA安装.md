@@ -113,7 +113,7 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
 4. 将安装包的所有者改成`ca`
     ```shell
     chown ca:ca /opt/ca
-    chown ca:ca /opt/ca/Wildfly-12.0.0.Final.zip
+    chown ca:ca /opt/ca/wildfly-12.0.0.Final.zip
     chown ca:ca /opt/ca/ejbca_ce_6_10_1_2.zip
     chown ca:ca /opt/ca/mysql-connector-java-5.1.46.jar
     ```
@@ -121,7 +121,7 @@ GRANT ALL PRIVILEGES ON ejbcatest.* TO 'ejbca'@'%' IDENTIFIED BY 'ejbca';
 # 安装
 
 1. 切换用户 `su - ca`
-2. 解压Wildfly `unzip /opt/ca/Wildfly-12.0.0.Final.zip`
+2. 解压Wildfly `unzip /opt/ca/wildfly-12.0.0.Final.zip`
 3. 修改Wildfly运行配置文件
     1. `vim wildfly-12.0.0.Final/bin/standalone.conf`
     2. 找到53行
